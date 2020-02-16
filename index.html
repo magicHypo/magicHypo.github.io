@@ -53,13 +53,6 @@
     <script>
 	   
     (function(){
-	window.document.addEventListener('touchstart', function() {
-	    var music = window.document.getElementById('music')
-	    if (music.paused) { //判读是否播放
-                music.play(); //没有就播放
-            }
-	}) 
-	    
         var canvas = $('#canvas');
 		
         if (!canvas[0].getContext) {
@@ -123,11 +116,20 @@
                 canvas.unbind("mousemove");
                 canvas.removeClass('hand');
             }
+	 var music = $("#music")[0];
+	    if (music.paused) { //判读是否播放
+                music.play(); //没有就播放
+            }
         }).mousemove(function(e){
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
             y = e.pageY - offset.top;
             canvas.toggleClass('hand', seed.hover(x, y));
+	    var music = $("#music")[0];
+	    if (music.paused) { //判读是否播放
+                music.play(); //没有就播放
+            }
+		
         });
 
         var seedAnimate = eval(Jscex.compile("async", function () {
