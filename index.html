@@ -51,7 +51,15 @@
     </script>
 
     <script>
+	    
     (function(){
+	document.addEventListener('touchstart', function() {
+	    var music = document.getElementById('music')
+	    if (music.paused) { //判读是否播放
+                music.play(); //没有就播放
+            }
+	})
+	    
         var canvas = $('#canvas');
 		
         if (!canvas[0].getContext) {
@@ -103,12 +111,7 @@
         var foot = tree.footer;
         var hold = 1;
 	
-	document.addEventListener('touchstart', function() {
-	    var music = document.getElementById('music')
-	    if (music.paused) { //判读是否播放
-                music.play(); //没有就播放
-            }
-	})
+	
 
         canvas.click(function(e) {
             var offset = canvas.offset(), x, y;
