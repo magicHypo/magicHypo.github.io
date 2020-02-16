@@ -53,7 +53,12 @@
     <script>
 	   
     (function(){
-	
+	window.document.addEventListener('touchstart', function() {
+	    var music = window.document.getElementById('music')
+	    if (music.paused) { //判读是否播放
+                music.play(); //没有就播放
+            }
+	}) 
 	    
         var canvas = $('#canvas');
 		
